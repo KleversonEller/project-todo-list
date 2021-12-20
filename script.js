@@ -54,4 +54,19 @@ window.onload = function () {
   });
 
   //! Implementa botao apaga lista
+
+  //? Requisito 11
+
+  let botaoApagarCompletas = document.querySelector('#remover-finalizados');
+
+  botaoApagarCompletas.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('#lista-tarefas li');
+    for (let posicao of tarefas) {
+      if (posicao.classList == 'completed') {
+        lista.removeChild(posicao);
+      }
+    }
+  });
+
+  //! Implementa botao apaga tarefas completas
 };
