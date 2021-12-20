@@ -41,4 +41,17 @@ window.onload = function () {
   });
 
   //! Ao clicar duas vezes em uma tarefa da lista adiciona a classe completed
+
+  //? Requisito 10
+
+  let botaoApagarLista = document.querySelector('#apaga-tudo');
+
+  botaoApagarLista.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('#lista-tarefas li');
+    for (let posicao of tarefas) {
+      lista.removeChild(posicao);
+    }
+  });
+
+  //! Implementa botao apaga lista
 };
