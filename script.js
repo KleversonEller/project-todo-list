@@ -21,10 +21,9 @@ window.onload = function () {
   lista.addEventListener('click', function (evento) {
     let tarefas = document.querySelectorAll('#lista-tarefas li');
     for (let posicao of tarefas) {
-      posicao.style.backgroundColor = 'white';
+      posicao.removeAttribute('id');
+      evento.target.id = 'select';
     }
-    let tarefa = evento.target;
-    tarefa.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 
   //! Ao clicar em uma tarefa da lista pinta o fundo apenas do elemento clicado
@@ -34,7 +33,7 @@ window.onload = function () {
   lista.addEventListener('dblclick', function (evento) {
     let tarefa = evento.target;
     if (tarefa.classList == 'completed') {
-      tarefa.classList.remove('completed');
+      tarefa.removeAttribute('class');
     } else {
       tarefa.classList.add('completed');
     }
@@ -69,4 +68,16 @@ window.onload = function () {
   });
 
   //! Implementa botao apaga tarefas completas
+
+  //? Requisito 14
+
+  let botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
+
+  botaoRemoveSelecionado.addEventListener('click', function () {
+    let selecionado = document.querySelector('#select');
+
+    lista.removeChild(selecionado);
+  });
+
+  //! Implementa botao que apaga tarefas selecionadas
 };
