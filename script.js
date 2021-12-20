@@ -13,4 +13,15 @@ window.onload = function () {
   });
 
   //! Implementa um o texto digitado no input na lista de tarefas em ordem de criação e apaga o texto do input
+
+  //? Requisito 7
+
+  let lista = document.querySelector('#lista-tarefas');
+
+  lista.addEventListener('click', function (evento) {
+    let tarefa = evento.target;
+    tarefa.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+
+  //! Ao clicar em uma tarefa da lista pinta o fundo
 };
