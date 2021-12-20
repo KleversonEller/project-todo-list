@@ -28,4 +28,17 @@ window.onload = function () {
   });
 
   //! Ao clicar em uma tarefa da lista pinta o fundo apenas do elemento clicado
+
+  //? Requisito 9
+
+  lista.addEventListener('dblclick', function (evento) {
+    let tarefa = evento.target;
+    if (tarefa.classList == 'completed') {
+      tarefa.classList.remove('completed');
+    } else {
+      tarefa.classList.add('completed');
+    }
+  });
+
+  //! Ao clicar duas vezes em uma tarefa da lista adiciona a classe completed
 };
