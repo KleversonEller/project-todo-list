@@ -69,6 +69,43 @@ window.onload = function () {
 
   //! Implementa botao apaga tarefas completas
 
+  //? Requisito 12
+
+  let botaoSalvarLista = document.querySelector('#salvar-tarefas');
+
+  botaoSalvarLista.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('#lista-tarefas li');
+    let tarefasParaSalvar = [];
+    for (let posicao of tarefas) {
+      tarefasParaSalvar.push({
+        texto: posicao.innerText,
+        classe: posicao.classList.value,
+      });
+    }
+    localStorage.setItem('lista-salva', JSON.stringify(tarefasParaSalvar));
+  });
+
+  function itensSalvos() {
+    let tarefasSalvas = JSON.parse(localStorage.getItem('lista-salva'));
+    for (let posicao of tarefasSalvas) {
+      let texto = posicao.texto;
+      let classe = posicao.classe;
+      let cria = document.createElement('li');
+      if (posicao.classe == '') {
+        cria.innerText = texto;
+        lista.appendChild(cria);
+      } else {
+        cria.classList.add(classe);
+        cria.innerText = texto;
+        lista.appendChild(cria);
+      }
+    }
+  }
+
+  itensSalvos();
+
+  //! Salva a lista e retorna a lista salva quando a pagina for recarregada
+
   //? Requisito 14
 
   let botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
