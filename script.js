@@ -108,6 +108,50 @@ window.onload = function () {
 
   //! Salva a lista e retorna a lista salva quando a pagina for recarregada
 
+  //? Requisito 13
+
+  let botaoMoveCima = document.querySelector('#mover-cima');
+
+  botaoMoveCima.addEventListener('click', function () {
+    let tarefaSelecionada = document.querySelector('#select');
+    let tarefaAnterior = null;
+    if (tarefaSelecionada !== null) {
+      tarefaAnterior = tarefaSelecionada.previousSibling;
+    }
+    let primeiroFilho = lista.firstChild;
+
+    if (
+      tarefaSelecionada !== primeiroFilho &&
+      tarefaSelecionada !== null &&
+      tarefaAnterior !== null
+    ) {
+      lista.insertBefore(tarefaSelecionada, tarefaAnterior);
+    }
+  });
+
+  //! Implementa botao para mover tarefas para cima
+
+  let botaoMoveBaixo = document.querySelector('#mover-baixo');
+
+  botaoMoveBaixo.addEventListener('click', function () {
+    let tarefaSelecionada = document.querySelector('#select');
+    let tarefaAnterior = null;
+    if (tarefaSelecionada !== null) {
+      tarefaAnterior = tarefaSelecionada.nextSibling;
+    }
+    let ultimoFilho = lista.lastChild;
+
+    if (
+      tarefaSelecionada !== ultimoFilho &&
+      tarefaSelecionada !== null &&
+      tarefaAnterior !== null
+    ) {
+      lista.insertBefore(tarefaAnterior, tarefaSelecionada);
+    }
+  });
+
+  //! Implementa botao para mover tarefas para baixo
+
   //? Requisito 14
 
   let botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
